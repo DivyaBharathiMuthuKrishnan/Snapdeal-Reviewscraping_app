@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrape Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🛒 Snapdeal Review Scraper</h1>
+    </header>
+    <main>
+        <h2>{{ message }}</h2>
+
+        {% if reviews %}
+            <h3>Reviews:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Username</th>
+                        <th>Review Text</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for review in reviews %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ review.username if review.username else "Anonymous" }}</td>
+                        <td>{{ review.review_text }}</td>
+                        <td>{{ review.rating if review.rating is not none else "N/A" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Word Cloud:</h3>
+            <img src="{{ image_url }}" alt="Word Cloud">
+
+            <form action="/analyze" method="post">
+                <button type="submit">🔎 Analyze Business Insights</button>
+            </form>
+        {% endif %}
+
+        <a href="/">⬅️ Back to Home</a>
+    </main>
+</body>
+</html>
+
+
+
+
+

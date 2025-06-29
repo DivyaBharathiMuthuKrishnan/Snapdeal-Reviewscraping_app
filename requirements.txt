@@ -1,0 +1,8 @@
+Flask
+gunicorn
+pandas
+matplotlib
+wordcloud
+beautifulsoup4
+requests
+# .\venv\Scripts\Activate

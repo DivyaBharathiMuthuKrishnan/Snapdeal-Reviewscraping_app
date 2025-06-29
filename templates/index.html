@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snapdeal Review Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🛒 Snapdeal Review Scraper</h1>
+    </header>
+    <main>
+        <h2>Enter Product Details</h2>
+        <form action="/result" method="post">
+            <label>Snapdeal Product Review URL:</label><br>
+            <input type="text" name="product_url" required><br><br>
+
+            <label>Pages to Scrape (default 5):</label><br>
+            <input type="number" name="pages" min="1" value="5" required><br><br>
+
+            <input type="submit" value="Scrape Reviews">
+        </form>
+    </main>
+</body>
+</html>
+

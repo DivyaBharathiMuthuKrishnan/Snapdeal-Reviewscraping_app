@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>📊 Business Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        .stats {
+            background-color: #e8f6f3;
+            border-left: 6px solid #27ae60;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .stats h3 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+
+        .recommendation-box {
+            background-color: #f0f8ff;
+            border-left: 6px solid #2980b9;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+
+        .recommendation-box h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            line-height: 1.8;
+        }
+
+        li {
+            padding: 8px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li span.icon {
+            margin-right: 10px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .chart {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .chart img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📈 Business Insights and Suggestions</h2>
+
+        <div class="stats">
+            <h3>✔ Review Summary</h3>
+            <p><strong>Average Rating:</strong> {{ avg_rating }}</p>
+            <p><strong>Total Reviews Analyzed:</strong> {{ total_reviews }}</p>
+            <p><strong>Current Happy Customers:</strong> {{ happy_pct }}%</p>
+            <p><strong>Potential Happy Customers with Improvements:</strong> ~{{ improved_happy }}%</p>
+        </div>
+
+        <div class="recommendation-box">
+            <h3>📦 Recommendations to Improve Your Product</h3>
+            <ul>
+                {% for item in recommendations %}
+                    <li><span class="icon">✔</span> {{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if pie_image %}
+            <div class="chart">
+                <h3>📊 Sentiment Distribution</h3>
+                <img src="{{ pie_image }}" alt="Sentiment Pie Chart">
+            </div>
+        {% endif %}
+
+        {% if bar_image %}
+            <div class="chart">
+                <h3>⭐ Rating Breakdown</h3>
+                <img src="{{ bar_image }}" alt="Ratings Bar Chart">
+            </div>
+        {% endif %}
+
+        <a href="/">⬅️ Back to Home</a>
+    </div>
+</body>
+</html>
+
+
+
